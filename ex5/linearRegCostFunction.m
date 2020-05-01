@@ -19,7 +19,19 @@ grad = zeros(size(theta));
 %               You should set J to the cost and grad to the gradient.
 %
 
+h = X*theta;
+hErr = h - y;
+sumSquaredError = sum(hErr .^ 2);
+regTermLeft = (1/(2 * m)) * sumSquaredError;
 
+thetaWithoutBias = theta(2:end);
+sumSquaredTheta = sum(thetaWithoutBias .^ 2);
+regTermRight = (lambda / (2 * m)) * sumSquaredTheta;
+
+J = regTermLeft + regTermRight;
+
+grad = (1/m) * X' * hErr;
+grad(2:end) += (lambda / m) * thetaWithoutBias;
 
 
 
