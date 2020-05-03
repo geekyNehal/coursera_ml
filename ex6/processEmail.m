@@ -99,11 +99,7 @@ while ~isempty(email_contents)
 
 
 
-
-
-
-
-
+	word_indices = [word_indices; find(ismember(vocabList, str))];
 
 
     % =============================================================
