@@ -26,12 +26,13 @@ centroids = zeros(K, n);
 % Note: You can use a for-loop over the centroids to compute this.
 %
 
-
-
-
-
-
-
+for k = 1:K
+    xPos = find(idx == k);
+    if(size(xPos,1)>0)
+      avg = mean(X(xPos,:));
+      centroids(k, :) = avg;
+    end
+end
 
 % =============================================================
 
